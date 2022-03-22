@@ -1,0 +1,27 @@
+.todoapp__container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.list-group-item, .list-group-item:first-child, .list-group-item:last-child {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0.5rem;
+    border-radius: 1rem;
+}
+.list-group-item button {
+    border: none;
+    outline: none;
+}
+.form-control, .form-control:focus, .input-group button {
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--color2);
+    color: var(--color2);
+}
+.list-group {
+    gap: 1rem;
+}

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Hurricane&display=swap');
 nav {
     border-bottom: 1px solid transparent;
-    color: var(--color4);
+    color: var(--color2);
     min-height: 10vh;
     text-align: left;
     line-height: 8vh;

@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, FormControl, InputGroup, ListGroup, Row} from "react-bootstrap";
 import {RiAddLine} from "react-icons/ri";
-import "./style.css"
+import "./TodoApp.css"
 import {AiFillDelete} from "react-icons/ai";
 
 export const TodoApp = () => {
@@ -21,6 +21,12 @@ export const TodoApp = () => {
         }
     }
 
+    const addFromPressEnter = (e) => {
+        if (e.key === 'Enter') {
+            addToList()
+        }
+    }
+
     const deleteFromList = (value) => {
         setList(list.filter(item => item !== value))
     }
@@ -34,6 +40,7 @@ export const TodoApp = () => {
                         placeholder="Type something..."
                         value={todo}
                         onChange={event => setTodo(event.target.value)}
+                        onKeyPress={event => addFromPressEnter(event)}
                     />
                     <Button
                         variant="outline-secondary"
@@ -47,7 +54,7 @@ export const TodoApp = () => {
             <Row className='justify-content-center align-content-center'>
                 <Col sm={8} md={4} lg={3}>
                     <ListGroup>
-                        {list.map((item) => <ListGroup.Item className='todoapp__item' key={item.trim()}>
+                        {list.map((item) => <ListGroup.Item key={item.trim()}>
                             <span>{item}</span>
                             <Button
                                 variant="outline-secondary"
