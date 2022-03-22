@@ -11,4 +11,4 @@ Installed Dependencies:
 * useState,
 * useEffect
 
-Learned about using localStorage methods getItem(), setItem()
+Learned how to use localStorage methods getItem(), setItem()
