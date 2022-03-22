@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, FormControl, InputGroup, ListGroup, Row} from "react-bootstrap";
 import {RiAddLine} from "react-icons/ri";
 import "./style.css"
@@ -6,11 +6,19 @@ import {AiFillDelete} from "react-icons/ai";
 
 export const TodoApp = () => {
     const [todo, setTodo] = useState('');
-    const [list, setList] = useState([]);
+    const [list, setList] = useState(JSON.parse(localStorage.getItem('list')) || []);
+
+    useEffect(() => {
+        localStorage.setItem('list', JSON.stringify(list));
+    }, [list])
 
     const addToList = () => {
-      setList(list => [...list, todo]);
-      setTodo('');
+        if (todo.trim() !== '') {
+            setList(list => [...list, todo]);
+            setTodo('');
+        } else {
+            alert('Type something')
+        }
     }
 
     const deleteFromList = (value) => {
@@ -48,7 +56,6 @@ export const TodoApp = () => {
                                 <AiFillDelete/>
                             </Button>
                         </ListGroup.Item>)}
-
                     </ListGroup>
                 </Col>
             </Row>
