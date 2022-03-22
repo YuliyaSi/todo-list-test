@@ -13,6 +13,10 @@ export const TodoApp = () => {
       setTodo('');
     }
 
+    const deleteFromList = (value) => {
+        setList(list.filter(item => item !== value))
+    }
+
     return (
         <Container fluid={true} className='todoapp__container'>
             <Row className='justify-content-center align-content-center'>
@@ -35,9 +39,12 @@ export const TodoApp = () => {
             <Row className='justify-content-center align-content-center'>
                 <Col sm={8} md={4} lg={3}>
                     <ListGroup>
-                        {list.map(item => <ListGroup.Item className='todoapp__item'>
+                        {list.map((item) => <ListGroup.Item className='todoapp__item' key={item.trim()}>
                             <span>{item}</span>
-                            <Button variant="outline-secondary">
+                            <Button
+                                variant="outline-secondary"
+                                onClick={() => deleteFromList(item)}
+                            >
                                 <AiFillDelete/>
                             </Button>
                         </ListGroup.Item>)}
