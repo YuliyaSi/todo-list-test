@@ -1,5 +1,6 @@
 import './App.css';
 import {RiTodoLine} from "react-icons/ri";
+import {TodoApp} from "./components/TodoApp";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
             <span>TodoList</span>
         </nav>
       </header>
+      <TodoApp/>
     </div>
   );
 }

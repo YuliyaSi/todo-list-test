@@ -1,0 +1,16 @@
+.todoapp__container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+}
+.todoapp__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 0;
+}
+.todoapp__item button {
+    border: none;
+    outline: none;
+}
