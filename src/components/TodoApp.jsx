@@ -3,6 +3,7 @@ import {Button, Col, Container, FormControl, InputGroup, ListGroup, Row} from "r
 import {RiAddLine} from "react-icons/ri";
 import "./TodoApp.css"
 import {AiFillDelete} from "react-icons/ai";
+import {randomColor} from "randomcolor"
 
 export const TodoApp = () => {
     const [todo, setTodo] = useState('');
@@ -54,7 +55,7 @@ export const TodoApp = () => {
             <Row className='justify-content-center align-content-center'>
                 <Col sm={8} md={4} lg={3}>
                     <ListGroup>
-                        {list.map((item) => <ListGroup.Item key={item.trim()}>
+                        {list.map((item) => <ListGroup.Item style={{ background: randomColor({luminosity: 'light'}) }} key={item.trim()}>
                             <span>{item}</span>
                             <Button
                                 variant="outline-secondary"
