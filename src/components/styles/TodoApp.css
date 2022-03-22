@@ -3,6 +3,7 @@
     top: 25%;
     left: 50%;
     transform: translate(-50%);
+    min-width: 300px;
 }
 .list-group-item, .list-group-item:first-child, .list-group-item:last-child {
     display: flex;
