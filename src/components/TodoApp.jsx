@@ -15,7 +15,12 @@ export const TodoApp = () => {
 
     const addToList = () => {
         if (todo.trim() !== '') {
-            setList(list => [...list, todo]);
+            const newTodo = {
+                id: todo.trim(),
+                text: todo,
+                color: randomColor({luminosity: 'light'})
+            }
+            setList(list => [...list, newTodo]);
             setTodo('');
         } else {
             alert('Type something')
@@ -29,7 +34,7 @@ export const TodoApp = () => {
     }
 
     const deleteFromList = (value) => {
-        setList(list.filter(item => item !== value))
+        setList(list.filter(item => item.id !== value))
     }
 
     return (
@@ -55,11 +60,11 @@ export const TodoApp = () => {
             <Row className='justify-content-center align-content-center'>
                 <Col sm={8} md={4} lg={3}>
                     <ListGroup>
-                        {list.map((item) => <ListGroup.Item style={{ background: randomColor({luminosity: 'light'}) }} key={item.trim()}>
-                            <span>{item}</span>
+                        {list.map((item) => <ListGroup.Item style={{ background: item.color }} key={item.id}>
+                            <span>{item.text}</span>
                             <Button
                                 variant="outline-secondary"
-                                onClick={() => deleteFromList(item)}
+                                onClick={() => deleteFromList(item.id)}
                             >
                                 <AiFillDelete/>
                             </Button>
