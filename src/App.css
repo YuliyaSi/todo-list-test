@@ -35,8 +35,8 @@ h1 {
 h2 {
     font-size: 28px;
 }
-h1 span {
-    transition: blinked 500ms;
+h1 > span {
+    animation: blinked 500ms infinite;
 }
 
 @keyframes blinked {
