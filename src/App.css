@@ -15,3 +15,32 @@ nav > span {
 .navbar__icon {
     height: 46px;
 }
+
+.typingText__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem ;
+    width: 100%;
+}
+.typingText__container h2, .typingText__container h1 {
+    color: var(--color2);
+}
+h1 {
+    font-size: 58px;
+    font-family: 'Hurricane', cursive;
+    letter-spacing: .1rem;
+}
+h2 {
+    font-size: 28px;
+}
+h1 span {
+    transition: blinked 500ms;
+}
+
+@keyframes blinked {
+    50% {
+        opacity: 0;
+    }
+}

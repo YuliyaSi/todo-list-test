@@ -5,6 +5,7 @@ import {randomColor} from "randomcolor"
 import {TodoApp__Input} from "./TodoApp__Input";
 import {TodoApp__List} from "./TodoApp__List";
 
+
 export const TodoApp = () => {
     const [todo, setTodo] = useState('');
     const [list, setList] = useState(JSON.parse(localStorage.getItem('list')) || []);
