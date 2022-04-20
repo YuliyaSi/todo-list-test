@@ -1,14 +1,19 @@
 import React, {useEffect, useState} from 'react';
 import {Container} from "react-bootstrap";
 import "./styles/TodoApp.css"
-import {randomColor} from "randomcolor"
+import randomColor from "randomcolor";
 import {TodoApp__Input} from "./TodoApp__Input";
 import {TodoApp__List} from "./TodoApp__List";
+import {ITodo} from "../Types/AppTypes";
+
+// const a = JSON.parse(localStorage.getItem('list'))
 
 
 export const TodoApp = () => {
-    const [todo, setTodo] = useState('');
-    const [list, setList] = useState(JSON.parse(localStorage.getItem('list')) || []);
+
+    const [todo, setTodo] = useState<string>('');
+    // @ts-ignore
+    const [list, setList] = useState<ITodo[]>( JSON.parse(localStorage.getItem('list')) || []);
 
     useEffect(() => {
         localStorage.setItem('list', JSON.stringify(list));
@@ -28,16 +33,18 @@ export const TodoApp = () => {
         }
     }
 
-    const addFromPressEnter = (e) => {
+    const addFromPressEnter = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
         if (e.key === 'Enter') {
             addToList()
         }
     }
 
-    const deleteFromList = (value) => {
-        setList(list.filter(item => item.id !== value))
+    const deleteFromList = (value: string): void => {
+        setList(list.filter((item) => {
+            const {id} = item;
+            return id !== value;
+        }))
     }
-
     return (
         <Container fluid={true} className='todoapp__container'>
             <TodoApp__Input todo={todo} setTodo={setTodo} addFromPressEnter={addFromPressEnter} addToList={addToList}/>

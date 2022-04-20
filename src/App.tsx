@@ -5,11 +5,12 @@ import React, {useEffect, useState} from "react";
 
 const words = ['awesome..', 'incredible..', 'powerful..'];
 
+
 function App() {
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string | null>(null)
 
-    const printArr = (arr, pos = 0) => {
+    const printArr = (arr: string[], pos = 0): void => {
         if (pos === arr.length) return printArr(arr, 0);
 
         let word = arr[pos];
@@ -17,7 +18,7 @@ function App() {
         return printText(word, pos)
     }
 
-    const printText = (word, pos, step = 0) => {
+    const printText = (word: string, pos: number, step = 0): void => {
         let printed = word.slice(0, step);
         setValue(printed);
         if (step <= word.length) {
@@ -33,6 +34,7 @@ function App() {
     useEffect(() => {
         printArr(words)
     }, [])
+
 
     return (
         <div>

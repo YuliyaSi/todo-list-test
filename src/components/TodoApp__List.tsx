@@ -2,8 +2,9 @@ import React from 'react';
 import {Button, Col, ListGroup, Row} from "react-bootstrap";
 import "./styles/TodoApp.css"
 import {AiFillDelete} from "react-icons/ai";
+import {IList} from "../Types/AppTypes";
 
-export const TodoApp__List = ({ list, deleteFromList }) => {
+export const TodoApp__List = ({ list, deleteFromList }: Required<IList>) => {
 
     return (
             <Row className='justify-content-center align-content-center'>
